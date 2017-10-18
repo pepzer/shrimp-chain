@@ -263,11 +263,11 @@
       Expressions wrapped with :chain/fork wait for the results of preceding
       operations and execute only if error is nil, as with :chain/wait all
       preceding bindings are available.
-      The return value is nil and the chain is advanced without waiting for the
-      result of the fork expression.
-      The result carried by the chain will remain bound to the return value of
-      the expression preceding :chain/fork, this implies that this directive is
-      allowed in threading macros too.
+      The return value is the result received from the chain, that is forwarded
+      without waiting (if async) the result of the fork expression.
+      After this step the result carried by the chain will contain the same
+      value it had before :chain/fork.
+      This behaviour allows the use of :chain/fork in threading macros.
 
         (chain []
           (let [content (chain-node (.read fs \"file\"))

@@ -136,7 +136,9 @@ Because execution happens before other expressions, all calls to :chain/go shoul
 
 This directive is useful to perform side effects with the condition that all previous operations were successful.
 Like with :chain/wait all preceding bindings are available, following the standard behaviour of the let macro.  
-Expressions wrapped with :chain/fork return nil immediately and the chain is advanced without waiting, forwarding the same result received by fork. This behaviour allows to use :chain/fork in threading macros where the value that gets threaded is the result carried by the chain.
+The return value is the result received from the chain, that is forwarded without waiting (if async) the result of the fork expression.
+After this step the result carried by the chain will contain the same value it had before :chain/fork.
+This behaviour allows the use of :chain/fork in threading macros.
 
     (chain []
        (let [content (read-file "README.md")
