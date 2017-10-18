@@ -1,0 +1,8 @@
+#!/bin/bash
+
+":"; exec lumo --socket-repl 12345 -D org.clojars.pepzer/redlobster:0.2.2,shrimp:0.1.0 -c src/cljs:src/cljc:test/cljs -K -i "$0" -r
+
+(ns repl.run
+ (:require [shrimp-chain.core]))
+
+(println "\nNamespace shrimp-chain.core loaded,\nswitch to it with (in-ns 'shrimp-chain.core)\n")
