@@ -1,4 +1,4 @@
-(defproject shrimp-chain "0.1.1"
+(defproject shrimp-chain "0.1.2-SNAPSHOT"
   :description "A ClojureScript library built on top of shrimp providing macros to chain async functions."
   :url "https://github.com/pepzer/shrimp-chain"
   :license {:name "Mozilla Public License Version 2.0"
@@ -6,9 +6,7 @@
 
   :min-lein-version "2.7.1"
 
-  :dependencies [[org.clojure/clojure "1.9.0-beta1"]
-                 [org.clojure/clojurescript "1.9.946"]
-                 [org.clojars.pepzer/redlobster "0.2.2"]
+  :dependencies [[org.clojars.pepzer/redlobster "0.2.2"]
                  [shrimp "0.1.0"]]
 
   :plugins [[lein-figwheel "0.5.13"]
@@ -44,6 +42,8 @@
                                    :optimizations :advanced
                                    :source-map false }}]}
 
-  :profiles {:dev {:source-paths ["dev"]}}
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojure/clojure "1.9.0-beta1"]
+                                  [org.clojure/clojurescript "1.9.946"]]}}
   :figwheel {})
 

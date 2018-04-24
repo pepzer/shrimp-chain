@@ -171,7 +171,7 @@
   "Build a code block that waits the result of expr and executes in-form."
   [in-form expr]
   (let [[sym form] expr
-        prom-sym (gensym (str sym "-prom-"))]
+        prom-sym (gensym "sym-prom-")]
     (list r-let-realised [prom-sym form]
           (list 'let [sym (list 'deref prom-sym)]
                 in-form))))
